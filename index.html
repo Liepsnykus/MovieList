@@ -10,14 +10,32 @@
 </head>
 
 <body>
+    <div class="container dir-col align-start" id="container">
+        <div class="btn" id="openAddModal">ADD MOVIE</div>
+        <div class="d-flex f-wrap" id="list">
+        </div>
+    </div>
 
-    <div class="container d-flex f-wrap" id="container">    
+    <div class="addModal d-none align-center j-center" id="addModalContainer">
+        <div class="modal d-flex dir-col">
+            <h2>Add Movie</h2>
+            <input type="text" placeholder="Title" id="addTitle">
+            <input type="text" placeholder="Poster URL" name="" id="addPoster">
+            <input type="text" placeholder="Year" id="addYear">
+            <input type="text" placeholder="IMDB Rating" id="addRating">
+            <input type="text" placeholder="Description" id="addDescription">
+            <div>
+                <button class="addBtn" id="addBtn">ADD</button>
+                <button class="cancelBtn" id="cancelBtn">Cancel</button>
+            </div>
+            
+        </div>
     </div>
 
     <div class="movie d-none" id="movie">
         
         <div class="infoPoster d-flex dir-col align-start">
-            <div class="backBtn" id="backBtn">BACK TO LIST</div>
+            <div class="btn" id="backBtn">BACK TO LIST</div>
             <img id="infoPoster" src="https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_UX182_CR0,0,182,268_AL_.jpg" alt="">
         </div>
         <div>

@@ -66,6 +66,7 @@ let moviesList = [
   
 
 const container = document.getElementById ('container')
+const list = document.getElementById('list')
 const movie = document.getElementById('movie')
 const infoPoster = document.getElementById("infoPoster")
 const titleBig = document.getElementById('titleBig')
@@ -77,13 +78,23 @@ const inputName = document.getElementById('inputName')
 const inputText = document.getElementById('inputText')
 const submitBtn = document.getElementById('submitBtn')
 const commentList = document.getElementById('commentList')
+const openAddModal = document.getElementById('openAddModal')
+const addModalContainer = document.getElementById('addModalContainer')
+const addTitle = document.getElementById('addTitle')
+const addPoster = document.getElementById('addPoster')
+const addYear = document.getElementById('addYear')
+const addRating = document.getElementById('addRating')
+const addBtn = document.getElementById('addBtn')
+const cancelBtn = document.getElementById('cancelBtn')
+const addDescription = document.getElementById('addDescription')
+
 
 let filteredMovie
 
 function displayList() {
   container.style.display = 'flex'
   movie.style.display = 'none'
-  container.innerHTML = ''
+  list.innerHTML = ''
     moviesList.map( item => {
 
         let card = document.createElement('div')
@@ -112,7 +123,7 @@ function displayList() {
         enter.classList.add('enter')
         enter.innerText = 'Watch!'
 
-        container.appendChild(card)
+        list.appendChild(card)
         card.appendChild(poster)
         card.appendChild(infoSide)
         poster.appendChild(posterImg)
@@ -202,9 +213,40 @@ function removeComment (event) {
   console.log(event);
   displayComments()
 }
+function addMovie() {
+  let newMovie = {}
+  newMovie.title = addTitle.value
+  newMovie.image = addPoster.value
+  newMovie.year = addYear.value
+  newMovie.rating = addRating.value
+  newMovie.description = addDescription.value
+  newMovie.comments= []
+  if(newMovie.title.length != 0 && newMovie.image.length != 0 && newMovie.year.length == 4 && newMovie.rating.length != 0 && newMovie.description.length != 0) {
+    moviesList.unshift(newMovie)
+    displayList()
+    closeModal()
+  }
+  
+}
+
+function opennewMovieCard () {
+  addModalContainer.style.display = "flex"
+  addTitle.value = ''
+  addPoster.value = ''
+  addYear.value = ''
+  addRating.value = ''
+  addDescription.value = ''
+}
+
+function closeModal() {
+  addModalContainer.style.display = "none"
+  
+}
 
 
 
 backBtn.addEventListener('click', displayList)
 submitBtn.addEventListener('click', submitComment)
-
+openAddModal.addEventListener('click', opennewMovieCard)
+cancelBtn.addEventListener('click', closeModal)
+addBtn.addEventListener('click', addMovie)

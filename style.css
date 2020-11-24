@@ -202,13 +202,13 @@ body {
     margin-top: 10px;
 }
 
-.backBtn {
+.btn {
     padding: 5px;
     border: 2px solid white;
-    margin-bottom: 5px;
+    margin: 10px;
     transition: 0.2s;
 }
-.backBtn:hover {
+.btn:hover {
     cursor: pointer;
     background-color: white;
     color: black;
@@ -231,10 +231,7 @@ body {
     position: absolute;
     top: 10px;
     font-size: 12px;
-
     right: 10px;
-
-
 }
 .commentRemove:hover {
     cursor: pointer;
@@ -244,3 +241,57 @@ body {
 .commentList {
     width: 100%;
 }
+
+.addModal {
+    position: fixed;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.432);
+}
+
+.modal {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+}
+
+.modal h2 {
+    color: black;
+}
+
+.modal input {
+    margin: 5px 0px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.addBtn {
+    background-color: rgb(105, 169, 230);
+    color: white;
+    padding: 10px 30px;
+    border-radius: 0px;
+    transition: 0.2s;
+}
+
+.addBtn:hover {
+    background-color: lightblue;
+    cursor: pointer;
+    color: black;
+}
+
+.cancelBtn {
+    background-color: rgb(196, 196, 196);
+    color: black;
+    padding: 10px 10px;
+    border-radius: 0px;
+    transition: 0.2s;
+}
+.cancelBtn:hover {
+    background-color: rgb(161, 161, 161);
+    cursor: pointer;
+}
+
+
+
