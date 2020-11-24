@@ -133,6 +133,7 @@ function enterMovie (event) {
     console.log(event.path[1].children[0].innerText);
     filteredMovie = moviesList.filter(el => el.title == event.path[1].children[0].innerText)[0]
     displayMovie()
+    console.log(filteredMovie);
 }
 
 function displayMovie() {
@@ -144,12 +145,21 @@ function displayMovie() {
   titleBig.innerText = filteredMovie.title
   ratingBig.innerText = filteredMovie.rating
   description.innerText = filteredMovie.description
+  displayStars()
   displayComments()
+}
+
+function displayStars() {
+  ratingStars.innerHTML = ''
+  for (let x = 0; x < Math.round(filteredMovie.rating/2)  ; x++) {
+    console.log(x);
+    ratingStars.innerHTML += '<i class="fas fa-star"></i>'
+  }
 }
 
 function submitComment(event) {
   console.log(event.path[1].children[0].value);
-  if (event.path[1].children[0].value.lengt != 0 && event.path[1].children[1].value.lengt != 0) {
+  if (event.path[1].children[0].value.length != 0 && event.path[1].children[1].value.length != 0) {
     let newComment = {
       name: event.path[1].children[0].value,
       comment: event.path[1].children[1].value
@@ -172,14 +182,29 @@ function displayComments() {
     comentName.classList.add('comentName')
     let comentText = document.createElement('div')
     comentText.innerText = item.comment
+    let commentRemove = document.createElement('div')
+    commentRemove.classList.add('commentRemove')
+    commentRemove.innerHTML = '<i class="far fa-trash-alt"></i>'
 
     commentList.appendChild(commentCard)
     commentCard.appendChild(comentName)
     commentCard.appendChild(comentText)
+    commentCard.appendChild(commentRemove)
 
+    commentRemove.addEventListener('click', removeComment)
   })
   
 }
 
+
+function removeComment (event) {
+  moviesList[moviesList.indexOf(filteredMovie)].comments = moviesList[moviesList.indexOf(filteredMovie)].comments.filter(el => el.comment !== event.path[2].children[1].innerText)
+  console.log(event);
+  displayComments()
+}
+
+
+
 backBtn.addEventListener('click', displayList)
 submitBtn.addEventListener('click', submitComment)
+

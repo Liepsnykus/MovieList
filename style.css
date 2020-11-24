@@ -166,6 +166,7 @@ body {
 .ratingStars {
     letter-spacing: 5px;
     margin-bottom: 20px;
+    color: rgb(190, 151, 22);
 }
 
 .description {
@@ -193,6 +194,10 @@ body {
     margin-bottom: 10px;
 }
 
+#inputText {
+    padding: 5px;
+}
+
 .submitBtn {
     margin-top: 10px;
 }
@@ -213,10 +218,29 @@ body {
     border: 1px solid gray;
     font-weight: 300;
     padding: 20px;
+    width: 100%;
     box-sizing: border-box;
     margin: 5px 0px;
+    position: relative;
 }
 .comentName {
     margin-bottom: 10px;
     color: rgb(128, 154, 240);
+}
+.commentRemove {
+    position: absolute;
+    top: 10px;
+    font-size: 12px;
+
+    right: 10px;
+
+
+}
+.commentRemove:hover {
+    cursor: pointer;
+    color: salmon;
+}
+
+.commentList {
+    width: 100%;
 }
