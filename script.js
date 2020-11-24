@@ -4,6 +4,7 @@ let moviesList = [
       title: "Parasite",
       year: "2019",
       rating: "8.6",
+      trailer: "https://www.youtube.com/embed/5xH0HfJHsaY",
       description: "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
       comments: []
     },
@@ -12,6 +13,7 @@ let moviesList = [
       title: "The Queen's Gambit",
       year: "2020",
       rating: "8.8",
+      trailer: "https://www.youtube.com/embed/CDrieqwSdgI",
       description: "Orphaned at the tender age of nine, prodigious introvert Beth Harmon discovers and masters the game of chess in 1960s USA. But child stardom comes at a price.",
       comments: [{
         name: "John",
@@ -23,6 +25,7 @@ let moviesList = [
       title: "Joker",
       year: "2019",
       rating: "8.5",
+      trailer: "https://www.youtube.com/embed/zAGVQLHvwOY",
       description: "In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker.",
       comments: [
         {
@@ -40,6 +43,7 @@ let moviesList = [
       title: "The Godfather",
       year: "1972",
       rating: "9.2",
+      trailer: "https://www.youtube.com/embed/sY1S34973zA",
       description: "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
       comments: []
     },
@@ -48,6 +52,7 @@ let moviesList = [
       title: "Pulp Fiction",
       year: "1994",
       rating: "8.9",
+      trailer: "https://www.youtube.com/embed/s7EdQ4FqbhY",
       description: "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
       comments: []
     },
@@ -56,6 +61,7 @@ let moviesList = [
       title: "The Shining",
       year: "1980",
       rating: "8.4",
+      trailer: "https://www.youtube.com/embed/5Cb3ik6zP2I",
       description: "A family heads to an isolated hotel for the winter where a sinister presence influences the father into violence, while his psychic son sees horrific forebodings from both past and future.",
       comments: [{
         name: "Jane",
@@ -87,6 +93,8 @@ const addRating = document.getElementById('addRating')
 const addBtn = document.getElementById('addBtn')
 const cancelBtn = document.getElementById('cancelBtn')
 const addDescription = document.getElementById('addDescription')
+const addTrailer = document.getElementById('addTrailer')
+const trailerVideo = document.getElementById('trailerVideo')
 
 
 let filteredMovie
@@ -156,6 +164,7 @@ function displayMovie() {
   titleBig.innerText = filteredMovie.title
   ratingBig.innerText = filteredMovie.rating
   description.innerText = filteredMovie.description
+  trailerVideo.src = filteredMovie.trailer
   displayStars()
   displayComments()
 }
@@ -217,8 +226,13 @@ function addMovie() {
   let newMovie = {}
   newMovie.title = addTitle.value
   newMovie.image = addPoster.value
-  newMovie.year = addYear.value
+  if(typeof(Number(addYear.value)) == 'number') {
+    newMovie.year = addYear.value
+  }
+  
+  newMovie.trailer = `https://www.youtube.com/embed/${addTrailer.value.slice(-11)}`
   newMovie.rating = addRating.value
+  newMovie.rating = newMovie.rating.replace(',', '.')
   newMovie.description = addDescription.value
   newMovie.comments= []
   if(newMovie.title.length != 0 && newMovie.image.length != 0 && newMovie.year.length == 4 && newMovie.rating.length != 0 && newMovie.description.length != 0) {
@@ -236,6 +250,7 @@ function opennewMovieCard () {
   addYear.value = ''
   addRating.value = ''
   addDescription.value = ''
+  addTrailer.value = ''
 }
 
 function closeModal() {

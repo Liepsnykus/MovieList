@@ -293,5 +293,7 @@ body {
     cursor: pointer;
 }
 
-
+.video {
+    margin-bottom: 20px;
+}
 
