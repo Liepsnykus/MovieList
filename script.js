@@ -231,7 +231,10 @@ function addMovie() {
   }
   
   newMovie.trailer = `https://www.youtube.com/embed/${addTrailer.value.slice(-11)}`
-  newMovie.rating = addRating.value
+  
+  if (addRating.value.replace(',', '.') > 0 && addRating.value.replace(',', '.') <= 10) {
+    newMovie.rating = addRating.value
+  }
   newMovie.rating = newMovie.rating.replace(',', '.')
   newMovie.description = addDescription.value
   newMovie.comments= []
