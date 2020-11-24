@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/42762d49f1.js" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <div class="container d-flex f-wrap" id="container">    
+    </div>
+
+    <div class="movie d-none" id="movie">
+        
+        <div class="infoPoster d-flex dir-col align-start">
+            <div class="backBtn" id="backBtn">BACK TO LIST</div>
+            <img id="infoPoster" src="https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_UX182_CR0,0,182,268_AL_.jpg" alt="">
+        </div>
+        <div>
+            <div class="movieInfo">
+                <h2 class="titleBig" id="titleBig">PARASIDE</h2>
+                <div class="line"></div>
+                <h3 class="yearBig" id="titleBig">2020</h3>
+                <div class="ratingBig" id="ratingBig">8.2</div>
+                <div class="ratingStars" id="ratingStars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <div class="description" id="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error tempore accusamus voluptates quos in, quidem quod possimus iste ex, nostrum velit et nesciunt aliquam atque repellendus minus sunt, provident odio.
+                </div>
+            </div>
+            <div class="commentSection">
+                <div class="newComment">
+                    <input type="text" id="inputName" autocomplete="off" placeholder="Your Name" class="nameInput">
+                    <textarea name="comment" id="inputText" autocomplete="off" placeholder="Your Comment" cols="50" rows="6"></textarea>
+                    <button class="submitBtn" id="submitBtn">Submit</button>
+                </div>
+                <div class="commentList" id="commentList">
+                </div>
+                
+            </div>
+
+        </div>
+        
+    </div>
+</body>
+</html>
